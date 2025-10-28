@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimedia | Darryl Oberio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Multimedia Section Layout --- */
+    .multimedia {
+      margin-top: 120px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .multimedia h2 {
+      font-size: 2rem;
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    .multimedia p {
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      line-height: 1.6;
+    }
+
+    /* --- Category Cards Grid --- */
+    .media-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      justify-items: center;
+      padding: 0 20px;
+    }
+
+    .category-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 400px;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+      color: #fff;
+      width: 100%;
+      padding: 20px;
+      text-align: left;
+      transition: background 0.3s ease;
+    }
+
+    .overlay h3 {
+      color: #00e5ff;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .overlay p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+      .multimedia h2 {
+        font-size: 1.6rem;
+      }
+
+      .multimedia p {
+        font-size: 0.95rem;
+        padding: 0 10px;
+      }
+
+      .category-card img {
+        height: 200px;
+      }
+
+      .overlay h3 {
+        font-size: 1.1rem;
+      }
+
+      .overlay p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .media-category-grid {
+        gap: 25px;
+      }
+
+      .category-card {
+        max-width: 95%;
+      }
+
+      .overlay {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animation -->
+  <canvas id="bg"></canvas>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <div class="logo-circle"></div>
+      <div class="logo-text">Portfolio Website</div>
+    </div>
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="videography.html">Videography</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <section class="multimedia">
+      <h2>🎨 My Multimedia Projects</h2>
+      <p>Explore my creative works divided into two main categories — Photography and Videography. Each reflects my passion for visual storytelling and artistic expression.</p>
+
+      <div class="media-category-grid">
+        <!-- Photography -->
+        <div class="category-card" onclick="window.location.href='photography.html'">
+          <img src="da10.jfif" alt="Photography">
+          <div class="overlay">
+            <h3>📸 Photography</h3>
+            <p>See my best captures and edited images showcasing my creativity and storytelling through visuals.</p>
+          </div>
+        </div>
+
+        <!-- Videography -->
+        <div class="category-card" onclick="window.location.href='videography.html'">
+          <img src="da9.jfif" alt="Videography">
+          <div class="overlay">
+            <h3>🎬 Videography</h3>
+            <p>Watch my video projects that highlight my skills in editing, motion, and visual composition.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

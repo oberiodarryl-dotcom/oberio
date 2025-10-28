@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wi-Fighters Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .gallery-header {
+      background-color: #004aad;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .gallery-item {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #004aad;
+      color: white;
+    }
+
+    /* Lightbox Modal Style */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <body>
+  <header class="gallery-header">
+    <a href="index.html" class="back-home" title="Go back to homepage">← Back to Home</a>
+    <h1>Wi-Fighters Portfolio Gallery</h1>
+    <p>Showcasing our best student tech innovations</p>
+  </header>
+
+  <section class="gallery-container">
+    <a href="#img1" class="gallery-item">
+      <img src="darryl.jpg" alt="Darryl Portfolio" />
+    </a>
+    <a href="#img2" class="gallery-item">
+      <img src="james.jpg" alt="James Portfolio" />
+    </a>
+    <a href="#img3" class="gallery-item">
+      <img src="nathlie.jpg" alt="Nathlie Portfolio" />
+    </a>
+    <a href="#img4" class="gallery-item">
+      <img src="johnrel.jpg" alt="Johnrel Portfolio" />
+    </a>
+    <a href="#img5" class="gallery-item">
+      <img src="riza.jpg" alt="Riza Portfolio" />
+    </a>
+    <a href="#img6" class="gallery-item">
+      <img src="trisha.jpg" alt="Trisha Portfolio" />
+    </a>
+    <a href="#img7" class="gallery-item">
+      <img src="given.jpg" alt="Given Portfolio" />
+    </a>
+    <a href="#img8" class="gallery-item">
+      <img src="francis.jpg" alt="Francis Portfolio" />
+    </a>
+  </section>
+
+  <!-- Lightbox Modals -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="darryl.jpg" alt="Darryl Portfolio Full View" />
+  </div>
+  <div id="img2" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="james.jpg" alt="James Portfolio Full View" />
+  </div>
+  <div id="img3" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="nathlie.jpg" alt="Nathlie Portfolio Full View" />
+  </div>
+  <div id="img4" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="johnrel.jpg" alt="Johnrel Portfolio Full View" />
+  </div>
+  <div id="img5" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="riza.jpg" alt="Riza Portfolio Full View" />
+  </div>
+  <div id="img6" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="trisha.jpg" alt="Trisha Portfolio Full View" />
+  </div>
+  <div id="img7" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="given.jpg" alt="Given Portfolio Full View" />
+  </div>
+  <div id="img8" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="francis.jpg" alt="Francis Portfolio Full View" />
+  </div>
+
+  <footer>
+    <p>© 2025 Lapu-Lapu City College - Wi-Fighters</p>
+  </footer>
+</body>
+
+</body>
+</html>

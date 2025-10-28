@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Videography | Darryl Oberio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Videography Page Layout --- */
+    .video-gallery {
+      margin-top: 120px; /* space below fixed header */
+      text-align: center;
+      padding: 20px;
+    }
+
+    .video-gallery h2 {
+      font-size: 2rem;
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    .video-gallery p {
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* --- Responsive Video Grid --- */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      padding: 0 20px;
+    }
+
+    .video-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .video-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      border: none;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .video-info {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .video-info h3 {
+      color: #00e5ff;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .video-info p {
+      color: #ddd;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+      .video-gallery h2 {
+        font-size: 1.6rem;
+      }
+
+      .video-gallery p {
+        font-size: 0.95rem;
+        padding: 0 10px;
+      }
+
+      .video-info h3 {
+        font-size: 0.95rem;
+      }
+
+      .video-info p {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-grid {
+        gap: 20px;
+      }
+
+      .video-card {
+        max-width: 95%;
+      }
+
+      .video-gallery h2 {
+        font-size: 1.4rem;
+      }
+
+      .video-gallery p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animation -->
+  <canvas id="bg"></canvas>
+
+  <!-- Header identical to index.html -->
+  <header>
+    <div class="logo-container">
+      <div class="logo-circle"></div>
+      <div class="logo-text">Portfolio Website</div>
+    </div>
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="multimedia.html" class="active">Multimedia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="video-gallery">
+      <h2>🎬 Videography Showcase</h2>
+      <p>Explore my creative video projects — featuring storytelling, editing, and cinematic visuals that bring my ideas to life.</p>
+
+      <div class="video-grid">
+        <!-- Video 1 -->
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="marketing advertisement.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>COMMERCIAL VIDEOGRAPHY</h3>
+            <p>This videography promotes a product, service, or brand using creative visuals and persuasive storytelling to connect with the audience.</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="wi-fighters ads.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>EDUCATIONAL VIDEOGRAPHY</h3>
+            <p>This school project aims to teach and inform through engaging and creative video presentation for easier learning.</p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="docu.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-info">
+            <h3>INTERVIEW VIDEOGRAPHY</h3>
+            <p>This captures real conversations and insights, helping present personal stories and perspectives clearly and visually.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+
+  <script>
+    // --- Only one video plays at a time ---
+    const videos = document.querySelectorAll('.video-card video');
+
+    videos.forEach(video => {
+      video.addEventListener('play', () => {
+        videos.forEach(other => {
+          if (other !== video && !other.paused) {
+            other.pause();
+            other.currentTime = 0; // optional: restart
+          }
+        });
+      });
+
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+      });
+    });
+  </script>
+</body>
+</html>

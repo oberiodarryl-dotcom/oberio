@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography | Darryl Oberio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Photography Page Layout --- */
+    .photo-gallery {
+      margin-top: 120px; /* space below header */
+      text-align: center;
+      padding: 20px;
+    }
+
+    .photo-gallery h2 {
+      font-size: 2rem;
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    .photo-gallery p {
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* --- Responsive Photo Grid --- */
+    .photo-video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      padding: 0 20px;
+    }
+
+    .photo-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .photo-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 15px 15px 0 0;
+      display: block;
+    }
+
+    .photo-info {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .photo-info h3 {
+      color: #00e5ff;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .photo-info p {
+      color: #ddd;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* --- Lightbox Styling --- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    #closeLightbox {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    #closeLightbox:hover {
+      color: #00e5ff;
+    }
+
+    #lightboxCaption {
+      color: #ccc;
+      max-width: 80%;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+      .photo-gallery h2 {
+        font-size: 1.6rem;
+      }
+
+      .photo-gallery p {
+        font-size: 0.95rem;
+        padding: 0 10px;
+      }
+
+      .photo-info h3 {
+        font-size: 0.95rem;
+      }
+
+      .photo-info p {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .photo-video-grid {
+        gap: 20px;
+      }
+
+      .photo-card {
+        max-width: 95%;
+      }
+
+      .photo-gallery h2 {
+        font-size: 1.4rem;
+      }
+
+      .photo-gallery p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animation -->
+  <canvas id="bg"></canvas>
+
+  <!-- Header identical to index.html -->
+  <header>
+    <div class="logo-container">
+      <div class="logo-circle"></div>
+      <div class="logo-text">Portfolio Website</div>
+    </div>
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="videography.html">Videography</a></li>
+        <li><a href="multimedia.html" class="active">Multimedia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="photo-gallery">
+      <h2>📸 Photography Showcase</h2>
+      <p>Enjoy my collection of creative and edited photos — presented in a modern, video-style layout with fullscreen view.</p>
+
+      <div class="photo-video-grid">
+        <!-- Each photo -->
+        <div class="photo-card">
+          <img src="1.jpg" alt="ASCENT" data-caption="ASCENT — Taken at the Chocolate Hills in Bohol after our Scrabble win at ALCU 7 ICL Bohol 2025. A moment of triumph and reflection.">
+          <div class="photo-info">
+            <h3>ASCENT</h3>
+            <p>This was taken at the iconic Chocolate Hills in Bohol, right after we were hailed champions in the Scrabble Competition at the ALCU 7 ICL Bohol 2025 - Regional Championship. Standing here, I felt not just the joy of winning, but also the reminder that every triumph is a journey.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="2.jpg" alt="A MOMENT TO BREATHE" data-caption="A MOMENT TO BREATHE — Calmness and simplicity in nature’s silence.">
+          <div class="photo-info">
+            <h3>A MOMENT TO BREATHE</h3>
+            <p>Just taking it all in. The Chocolate Hills are a gentle reminder that the most beautiful things are simple and quiet — a perfect moment to pause and breathe.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="3.jpg" alt="AUTOBIOGRAPHY" data-caption="AUTOBIOGRAPHY — A portrait of growth, dreams, and perseverance.">
+          <div class="photo-info">
+            <h3>AUTOBIOGRAPHY</h3>
+            <p>This autobiography tells the story of Darryl U. Oberio, a dedicated BS Industrial Technology student majoring in Computer Technology, striving for growth through learning and perseverance.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="da11.jfif" alt="PROXIMITY" data-caption="PROXIMITY — The power of closeness and emotion.">
+          <div class="photo-info">
+            <h3>PROXIMITY</h3>
+            <p>This photo captures the emotional closeness and detail that comes from proximity in photography — every droplet and expression tells a story.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="da12.jfif" alt="CONTRAST" data-caption="CONTRAST — Light and shadow, calm and chaos.">
+          <div class="photo-info">
+            <h3>CONTRAST</h3>
+            <p>A striking visual difference between the shaded subject inside and the bright, busy world outside — a balance of calm and energy.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="da13.jfif" alt="POINT OF VIEW" data-caption="POINT OF VIEW — See the world through someone else’s eyes.">
+          <div class="photo-info">
+            <h3>POINT OF VIEW</h3>
+            <p>This photo shows a perspective from behind the subject, letting viewers experience the wonder of tall trees through their eyes.</p>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="da14.jfif" alt="RULE OF THIRDS" data-caption="RULE OF THIRDS — Perfect balance through composition.">
+          <div class="photo-info">
+            <h3>RULE OF THIRDS</h3>
+            <p>The subject is aligned using the rule of thirds, creating balance and natural movement for the viewer’s eyes between person and landscape.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="lightbox">
+    <span id="closeLightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="Expanded View" />
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // --- Lightbox Script ---
+    const photoCards = document.querySelectorAll(".photo-card img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    photoCards.forEach((img) => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.dataset.caption || img.alt;
+      });
+    });
+
+    closeLightbox.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
